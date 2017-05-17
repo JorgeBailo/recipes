@@ -41,6 +41,8 @@ twig:
     strict_variables: '%kernel.debug%'
     form_themes:
       - 'materialize_form_theme.html.twig'
+    globals:
+      contact_email: '%contact_email%'
 
 # Doctrine Configuration
 doctrine:
