@@ -5,17 +5,17 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input type="submit" class="waves-effect waves-light btn green" value="Edit" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('recipe_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <br />
+
+    {{ form_start(delete_form) }}
+        <input type="submit" class="waves-effect waves-light btn red" value="Delete">
+    {{ form_end(delete_form) }}
+
+    <br />
+
+    <a href="{{ path('recipe_index') }}" class="waves-effect waves-light btn blue">Back to the list</a>
+
 {% endblock %}

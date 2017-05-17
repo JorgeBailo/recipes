@@ -5,12 +5,8 @@
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Create" class="btn waves-effect waves-light green" />
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('recipe_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <a href="{{ path('recipe_index') }}" class="waves-effect waves-light btn blue">Back to the list</a>
 {% endblock %}

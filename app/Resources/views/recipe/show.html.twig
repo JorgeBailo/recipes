@@ -19,18 +19,14 @@
             </tr>
         </tbody>
     </table>
+    {{ form_start(delete_form) }}
+        <input type="submit" class="waves-effect waves-light btn red" value="Delete">
+    {{ form_end(delete_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('recipe_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('recipe_edit', { 'id': recipe.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+    <br />
+
+    <a href="{{ path('recipe_index') }}" class="waves-effect waves-light btn blue">Back to the list</a>
+    <a href="{{ path('recipe_edit', { 'id': recipe.id }) }}" class="waves-effect waves-light btn green">Edit</a>
+
     </ul>
 {% endblock %}

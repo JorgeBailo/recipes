@@ -21,14 +21,8 @@
                 <td>{{ recipe.created }}</td>
                 <td>{{ recipe.updated }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('recipe_show', { 'slug': recipe.slug }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('recipe_edit', { 'id': recipe.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('recipe_show', { 'slug': recipe.slug }) }}" class="waves-effect waves-light btn blue">Show</a>
+                    <a href="{{ path('recipe_edit', { 'id': recipe.id }) }}" class="waves-effect waves-light btn green">edit</a>
                 </td>
             </tr>
         {% endfor %}
@@ -37,7 +31,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('recipe_new') }}">Create a new recipe</a>
+            <a href="{{ path('recipe_new') }}" class="waves-effect waves-light btn blue">Create a new recipe</a>
         </li>
     </ul>
 {% endblock %}
