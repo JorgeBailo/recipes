@@ -1,0 +1,43 @@
+RecipeBundle\Entity\Recipe:
+    type: entity
+    table: recipe
+    repositoryClass: RecipeBundle\Repository\RecipeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        body:
+            type: text
+            nullable: true
+        slug:
+            type: string
+            length: 128
+            gedmo:
+              slug:
+                separator: _
+                style: default
+                fields:
+                  - title
+        created:
+            type: datetime
+            nullable: true
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            nullable: true
+            gedmo:
+              timestampable:
+                on: update
+
+    indexes:
+        search_idx:
+            columns: slug
+    lifecycleCallbacks: {  }

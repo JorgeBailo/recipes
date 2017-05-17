@@ -1,0 +1,7 @@
+recipe_recipe:
+    resource: "@RecipeBundle/Resources/config/routing/recipe.yml"
+    prefix:   /recipes
+
+recipe_homepage:
+    path:     /
+    defaults: { _controller: RecipeBundle:Default:index }
