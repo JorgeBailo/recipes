@@ -5,6 +5,9 @@ namespace RecipeBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class RecipeType extends AbstractType
 {
@@ -13,7 +16,18 @@ class RecipeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('body');
+        $builder
+            ->add('title', TextType::class, array('attr' => array('placeholder' => 'Title'),
+                'constraints' => array(
+                    new NotBlank(array("message" => "Please provide a title")),
+                )
+            ))
+            ->add('body', TextareaType::class, array('attr' => array('placeholder' => 'Body'),
+                'constraints' => array(
+                    new NotBlank(array("message" => "Please provide a body")),
+                )
+            )
+        );
     }
     
     /**
