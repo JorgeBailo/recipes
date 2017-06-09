@@ -10,4 +10,8 @@ namespace RecipeBundle\Repository;
  */
 class RecipeRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findLastRecipes()
+    {
+        return $this->findBy(array(), array('created' => 'ASC'));
+    }
 }

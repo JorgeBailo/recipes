@@ -18,9 +18,7 @@ class RecipeController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $recipes = $em->getRepository('RecipeBundle:Recipe')->findAll();
+        $recipes = $this->get('recipe.last_recipes')->findLastRecipes();
 
         return $this->render('recipe/index.html.twig', array(
             'recipes' => $recipes,
