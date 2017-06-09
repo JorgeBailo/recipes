@@ -2,3 +2,21 @@ services:
   recipe.last_recipes:
       class: RecipeBundle\Model\LastRecipes
       arguments: ["@doctrine.orm.entity_manager"]
+
+  recipe.listener.doctrine:
+      class: RecipeBundle\Service\DoctrineListenerService
+      arguments: ['@service_container']
+      tags:
+        - { name: doctrine.event_listener, event: postUpdate }
+        - { name: doctrine.event_listener, event: postPersist }
+        - { name: doctrine.event_listener, event: preRemove }
+        - { name: doctrine.event_listener, event: postRemove }
+
+  recipe_logger:
+      class: Symfony\Bridge\Monolog\Logger
+      arguments: [recipe]
+      calls:
+          - [pushHandler, ['@recipe_handler']]
+  recipe_handler:
+      class: Monolog\Handler\StreamHandler
+      arguments: [%kernel.logs_dir%/%kernel.environment%.recipe.log]
